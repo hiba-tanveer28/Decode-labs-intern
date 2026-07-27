@@ -14,7 +14,7 @@
 HOW TO RUN:
 
 Clone the repository:
-git clone https://github.com/your-username/your-repository-name.git
+git clone [https://github.com/your-username/your-repository-name.git](https://github.com/hiba-tanveer28/Decode-labs-intern/tree/main/Task1)
 
 Open the project folder:
 cd Task1
