@@ -1,5 +1,6 @@
  PROJEECT TITLE:
                   TO–DO LIST
+                  
  DESCRIPTION:
           A simple Task Manager application built with Python and Streamlit. This application allows users to manage their daily tasks easily.
  Users can:
