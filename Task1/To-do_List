@@ -1,0 +1,119 @@
+tasks = []
+
+def add_task():
+    task_name = input("Enter your task: ")
+
+    for task in tasks:
+        if task["title"].lower() == task_name.lower():
+            print("This task already exists!")
+            return
+        
+    task_status = input("Enter your task status: ")
+    deadline = input("Enter your task deadline: ")
+
+    task = {
+        "title": task_name,
+        "status": task_status,
+        "deadline": deadline
+    }
+
+    tasks.append(task)
+    print(f"Your task '{task_name}' added successfully!")
+
+def view_tasks():
+    if len(tasks) == 0:
+        print("No tasks available!")
+        return
+
+    print("\nYour Tasks")
+
+    for index, task in enumerate(tasks):
+        print(f"\nTask {index + 1}")
+        print(f"Title: {task['title']}")
+        print(f"Status: {task['status']}")
+        print(f"Deadline: {task['deadline']}")
+
+def update_task():
+    if len(tasks) == 0:
+        print("No tasks available!")
+        return
+
+    view_tasks()
+
+    task_number = int(input("\nEnter the task number you want to update: "))
+
+    if task_number < 1 or task_number > len(tasks):
+        print("Invalid task number!")
+        return
+
+    task = tasks[task_number - 1]
+
+    print("\nWhat do you want to update?")
+    print("1. Title")
+    print("2. Status")
+    print("3. Deadline")
+
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        new_title = input("Enter new title: ")
+        task["title"] = new_title
+
+    elif choice == "2":
+        new_status = input("Enter new status: ")
+        task["status"] = new_status
+
+    elif choice == "3":
+        new_deadline = input("Enter new deadline: ")
+        task["deadline"] = new_deadline
+
+    else:
+        print("Invalid choice!")
+        return
+
+    print(f"Task{task_number} updated successfully!")
+
+def delete_task():
+    if len(tasks) == 0:
+        print("No tasks available!")
+        return
+
+    task_name = input("Enter the task title you want to delete: ")
+
+    for task in tasks:
+        if task["title"].lower() == task_name.lower():
+            tasks.remove(task)
+            print(f"Task '{task_name}' deleted successfully!")
+            return
+
+    print("Task not found!")
+
+while True:
+    print("\n TASK MANAGER")
+    print("1. Add Task")
+    print("2. View Tasks")
+    print("3. Update Task")
+    print("4. Delete Task")
+    print("5. Exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        add_task()
+
+    elif choice == "2":
+        view_tasks()
+
+    elif choice == "3":
+        update_task()
+
+    elif choice == "4":
+        delete_task()
+
+    elif choice == "5":
+        print("Exiting Task Manager...")
+        break
+
+    else:
+        print("Invalid choice! Please try again.")
+
