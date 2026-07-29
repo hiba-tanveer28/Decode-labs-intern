@@ -12,7 +12,6 @@ from expenses import (
 
 st.set_page_config(
     page_title="Expense Tracker",
-    page_icon="💰",
     layout="wide"
 )
 
